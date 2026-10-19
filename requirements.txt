@@ -1,0 +1,11 @@
+matplotlib
+neptune
+neptune-pytorch
+numpy
+pandas
+pillow
+scipy
+torch
+torchvision
+configparser
+torchsummary
