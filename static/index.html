@@ -18,26 +18,27 @@
     @media(max-width:800px){.wrap{width:calc(100% - 40px)}.hero{padding-top:45px}.section-heading{grid-template-columns:1fr;gap:12px}.section-body{margin-left:0}.section{padding:45px 0}.workflow{padding:22px}.workflow-header{display:block}.workflow-header p{margin-top:8px}.workflow ol{grid-template-columns:1fr 1fr;gap:25px}.workflow li:nth-child(2)::after{display:none}.plots{gap:15px}.nav-links{gap:15px}.nav{min-height:70px}}
     @media(max-width:520px){.nav-links a:nth-child(2){display:none}.nav-links{font-size:12px;gap:14px}.hero{padding-bottom:35px}h1{font-size:2.45rem}.subtitle{font-size:18px}.authors{font-size:15px;gap:6px 16px}.workflow ol{grid-template-columns:1fr;gap:19px}.workflow li{padding:0 0 18px 36px;border-bottom:1px solid var(--line)}.workflow li:last-child{padding-bottom:0;border:0}.step{position:absolute;left:0;top:4px}.workflow li::after{display:none}.workflow-header{margin-bottom:20px}.workflow strong{font-size:17px}.workflow li p{margin-top:3px}.plots{grid-template-columns:1fr}h2{font-size:29px}th,td{padding:10px 8px;font-size:12px}.button{padding:9px 16px}.footer-inner{display:block}.footer-inner p+p{margin-top:10px}.code-block pre{padding:16px;font-size:11px}.section-intro{font-size:15px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    .hero{text-align:center}.hero h1,.hero .subtitle{margin-left:auto;margin-right:auto}.hero .eyebrow,.publication-links{justify-content:center}.button.resource-link{border-radius:999px;background:#363636;border-color:#363636;color:white;gap:9px;min-height:43px;font:500 15px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;padding:10px 19px}.button.resource-link:hover{background:#242424;border-color:#242424}.button.resource-link:disabled{opacity:.5;cursor:default}.button.resource-link:disabled:hover{background:#363636;border-color:#363636}.resource-link .icon{display:inline-flex;align-items:center;justify-content:center;width:1.1em;height:1.1em}.resource-link .icon svg{width:1em;height:1em}
   </style>
+  <script defer src="js/fontawesome.all.min.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header><nav class="wrap nav" aria-label="Main navigation">
     <a class="brand" href="#main" aria-label="DOD project home"><span class="brand-mark" aria-hidden="true">D</span>DOD</a>
-    <div class="nav-links"><a href="#overview">Overview</a><a href="#results">Results</a><a href="#get-started">Get started</a><a href="https://github.com/kp-labs-bme/dod">GitHub ↗</a></div>
+    <div class="nav-links"><a href="#overview">Overview</a><a href="#results">Results</a><a href="#citation">Citation</a><a href="https://github.com/kp-labs-bme/dod">GitHub ↗</a></div>
   </nav></header>
   <main id="main" class="wrap">
     <section class="hero" aria-labelledby="project-title">
       <p class="eyebrow">Research project · Image classification</p>
       <h1 id="project-title">Lightweight Dynamic Annotation Error Detection via Probability Discrepancy Aggregation</h1>
       <p class="subtitle">Identify potentially faulty labels by tracking persistent disagreement between a network’s predictions and its training annotations.</p>
-      <div class="authors">
-        <a href="https://orcid.org/0009-0003-2481-8456">Csanád L. Balogh<sup>1,2</sup></a>
-        <a href="https://orcid.org/0000-0003-2178-2921">Bálint Kővári<sup>1,3</sup></a>
-        <a href="https://orcid.org/0000-0002-1487-9672">Tamás Bécsi<sup>1</sup></a>
+      <div class="actions publication-links" aria-label="Project resources">
+        <button class="button resource-link" type="button" disabled title="Paper link will be added when available"><span class="icon" aria-hidden="true"><i class="fas fa-file-pdf"></i></span><span>Paper</span></button>
+        <a class="button resource-link" href="https://github.com/kp-labs-bme/dod"><span class="icon" aria-hidden="true"><i class="fab fa-github"></i></span><span>Code</span></a>
+        <a class="button resource-link" href="https://www.cs.toronto.edu/~kriz/cifar.html"><span class="icon" aria-hidden="true"><i class="fas fa-database"></i></span><span>CIFAR-100</span></a>
+        <a class="button resource-link" href="https://cs231n.stanford.edu/tiny-imagenet-200.zip"><span class="icon" aria-hidden="true"><i class="fas fa-images"></i></span><span>Tiny ImageNet</span></a>
       </div>
-      <p class="affiliations"><sup>1</sup> Budapest University of Technology and Economics, Department of Control for Transportation and Vehicle Systems<br><sup>2</sup> Asura Technologies Ltd. &nbsp; <sup>3</sup> HUN-REN Institute for Computer Science and Control (SZTAKI), Systems and Control Laboratory</p>
-      <div class="actions"><a class="button primary" href="https://github.com/kp-labs-bme/dod">View source code <span aria-hidden="true">↗</span></a><a class="button" href="#get-started">Run an experiment <span aria-hidden="true">↓</span></a><a class="button" href="#citation">Cite this project</a></div>
     </section>
     <section class="workflow" aria-labelledby="workflow-title">
       <div class="workflow-header"><h2 id="workflow-title" class="section-label">From training to inspection</h2><p>One classifier. A persistent score for each image.</p></div>
@@ -57,7 +58,7 @@
       </div>
     </section>
     <section id="results" class="section" aria-labelledby="results-title">
-      <div class="section-heading"><p class="section-label">02 / Results</p><h2 id="results-title">Reported validation accuracy.</h2></div>
+      <div class="section-heading"><p class="section-label">02 / Results</p><h2 id="results-title">Validation accuracy.</h2></div>
       <div class="section-body">
         <p class="section-intro">The manuscript compares training on the original dataset, training with 5% label noise, and training after removing the top-ranked samples. Values below are mean accuracy (%) ± one standard deviation across six independent runs.</p>
         <div class="table-wrap"><table><caption>CIFAR-100</caption><thead><tr><th scope="col">Architecture</th><th scope="col">Baseline</th><th scope="col">5% noise</th><th scope="col" class="cleaned">Cleaned</th></tr></thead><tbody>
@@ -77,46 +78,15 @@
         <figure><a href="images/mobilenet-validation.png" aria-label="Open the original MobileNetV3-Large plot"><img src="images/mobilenet-validation.png" width="1200" height="800" loading="lazy" alt="MobileNetV3-Large validation accuracy on CIFAR-100 and Tiny ImageNet: baseline, 5% contaminated, and cleaned training; shaded bands show variation across six runs."></a><figcaption><strong>MobileNetV3-Large.</strong> Original manuscript figure. Mean validation accuracy across six runs; shaded bands indicate ± one standard deviation. Click to view at full size.</figcaption></figure>
       </div>
     </section>
-    <section id="get-started" class="section" aria-labelledby="setup-title">
-      <div class="section-heading"><p class="section-label">03 / Get started</p><h2 id="setup-title">Explore the implementation.</h2></div>
-      <div class="section-body">
-        <p class="section-intro">The repository contains a PyTorch training pipeline, dataset loaders, per-sample scoring, and ranking export. Run these commands from the project directory using a compatible PyTorch and torchvision installation.</p>
-        <div class="setup-step"><h3><span aria-hidden="true">1</span>Clone and install</h3>
-          <div class="code-block"><div class="code-head"><span>BASH</span><button type="button" class="copy" data-copy="install-code" hidden>Copy</button></div><pre><code id="install-code">git clone https://github.com/kp-labs-bme/dod.git
-cd dod
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python -m pip install requests psutil</code></pre></div>
-          <p class="small">The last command installs two packages used by the current implementation but not listed in its requirements file.</p>
-        </div>
-        <div class="setup-step"><h3><span aria-hidden="true">2</span>Start a new scoring run</h3>
-          <div class="code-block"><div class="code-head"><span>BASH</span><button type="button" class="copy" data-copy="train-code" hidden>Copy</button></div><pre><code id="train-code">python train.py \
-  --data_loader_use_selection False \
-  --callbacks_neptune_logger_callback False \
-  --optim_lr_decay False</code></pre></div>
-          <p class="small">This uses the current CIFAR-100 defaults, including 1,000 incorrectly labeled duplicates and 1,000 heavily augmented samples. Selection is disabled because the first run has no ranking file. Learning-rate decay is disabled because the current trainer advances its scheduler only with Neptune logging enabled.</p>
-          <p class="small">For an initial two-epoch trial, append <code>--trainer_n_epochs 2</code>. To omit the added samples, append <code>--data_loader_n_duplicate 0 --data_loader_n_undoable 0</code>. These examples start new experiments; they do not reconstruct the original manuscript runs.</p>
-        </div>
-        <div class="setup-step"><h3><span aria-hidden="true">3</span>Inspect the ranking</h3>
-          <p>The default scoring run exports <code>base_exploit_indexes.txt</code>, ordered from the highest score to the lowest. Each line contains <code>sample_index,score,image_path</code>. Review the images before deciding which annotations to correct or remove.</p>
-          <p>Change the dataset, architecture, scoring method, and experiment settings in <a href="https://github.com/kp-labs-bme/dod/blob/main/configuration.ini">configuration.ini</a>. See the <a href="https://github.com/kp-labs-bme/dod#running-the-code">README</a> for the available options and implementation notes.</p>
-        </div>
-      </div>
-    </section>
     <section id="resources" class="section" aria-labelledby="resources-title">
-      <div class="section-heading"><p class="section-label">04 / Resources</p><h2 id="resources-title">Code and benchmark datasets.</h2></div>
-      <div class="section-body">
-        <ul class="resource-list">
-          <li><a href="https://github.com/kp-labs-bme/dod">DOD source repository ↗</a><p>Training and data-generation code, scoring methods, configuration, and setup instructions. Source code is released under the <a href="https://github.com/kp-labs-bme/dod/blob/main/LICENSE">MIT License</a>.</p></li>
-          <li><a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-100 ↗</a><p>Alex Krizhevsky. <a href="https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf"><cite>Learning Multiple Layers of Features from Tiny Images</cite></a>. University of Toronto, 2009.</p></li>
-          <li><a href="http://cs231n.stanford.edu/tiny-imagenet-200.zip">Tiny ImageNet ↗</a><p>Ya Le and Xuan Yang. <a href="https://vision.stanford.edu/teaching/cs231n/reports/2015/pdfs/yle_project.pdf"><cite>Tiny ImageNet Visual Recognition Challenge</cite></a>. Stanford University, 2015.</p></li>
-        </ul>
-        <div class="availability"><h3>Data availability</h3><p>The original generated experimental result files and noise-selection files were not retained and are unavailable. The tables and plots above preserve the aggregate results reported in the manuscript. The repository provides code for running new experiments.</p></div>
+      <div class="section-heading"><p class="section-label">03 / Data</p><h2 id="resources-title">Data availability</h2></div>
+      <div class="section-body prose">
+        <p>The original generated experimental result files and noise-selection files were not retained and are unavailable. The tables and plots above preserve the aggregate results reported in the manuscript. The <a href="https://github.com/kp-labs-bme/dod">code repository</a> provides code for running new experiments.</p>
+        <p class="small">Benchmark references: Alex Krizhevsky, <a href="https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf"><cite>Learning Multiple Layers of Features from Tiny Images</cite></a>, 2009; Ya Le and Xuan Yang, <a href="https://vision.stanford.edu/teaching/cs231n/reports/2015/pdfs/yle_project.pdf"><cite>Tiny ImageNet Visual Recognition Challenge</cite></a>, 2015.</p>
       </div>
     </section>
     <section id="citation" class="section" aria-labelledby="citation-title">
-      <div class="section-heading"><p class="section-label">05 / Reference</p><h2 id="citation-title">Cite this project.</h2></div>
+      <div class="section-heading"><p class="section-label">04 / Reference</p><h2 id="citation-title">Cite this project.</h2></div>
       <div class="section-body">
         <p class="section-intro">This project accompanies the manuscript named above. The entry below identifies the project page and research code; journal publication details will be added when available.</p>
         <div class="code-block citation"><div class="code-head"><span>BIBTEX · PROJECT PAGE</span><button type="button" class="copy" data-copy="citation-code" hidden>Copy</button></div><pre><code id="citation-code">@misc{balogh_dod_2026,
