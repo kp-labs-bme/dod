@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research code and project page for Lightweight Dynamic Annotation Error Detection via Probability Discrepancy Aggregation, by Csanád L. Balogh, Bálint Kővári, and Tamás Bécsi.">
+  <meta name="theme-color" content="#183e41">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lightweight Dynamic Annotation Error Detection">
+  <meta property="og:description" content="Finding annotation errors by tracking probability discrepancies during training. Research overview, reported results, and open-source code.">
+  <meta property="og:url" content="https://kp-labs-bme.github.io/dod/">
+  <link rel="canonical" href="https://kp-labs-bme.github.io/dod/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23183e41'/%3E%3Ctext x='32' y='45' fill='white' font-family='Georgia' font-size='44' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+  <title>DOD · Lightweight Dynamic Annotation Error Detection</title>
+  <style>
+    :root{color-scheme:light;--paper:#faf9f5;--ink:#202b2c;--muted:#596665;--accent:#183e41;--line:#d8dfd9;--wash:#edf2ec;--white:#fff;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}a{color:var(--accent);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}button,a{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid #a65722;outline-offset:5px}[hidden]{display:none!important}.wrap{width:min(1080px,calc(100% - 64px));margin:auto}.skip{position:absolute;top:-100px;left:24px;background:white;padding:12px;z-index:10}.skip:focus{top:12px}header{border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:80px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:750;letter-spacing:.08em}.brand-mark{display:grid;place-items:center;background:var(--accent);color:white;width:34px;height:34px;font:25px Georgia,serif;letter-spacing:0}.nav-links{display:flex;gap:28px;font-size:14px}.nav-links a{text-decoration:none}.nav-links a:hover{text-decoration:underline}.hero{padding:70px 0 58px}.eyebrow,.section-label{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}.eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 20px}.eyebrow::before{content:"";height:7px;width:7px;border-radius:50%;background:var(--accent)}h1{font:500 clamp(2.4rem,4.6vw,3.65rem)/1.13 Georgia,"Times New Roman",serif;letter-spacing:-.035em;max-width:1020px;margin:0 0 28px;text-wrap:balance}.subtitle{font-size:20px;color:var(--muted);max-width:750px;line-height:1.5;margin:0 0 32px}.authors{display:flex;flex-wrap:wrap;gap:10px 25px;font-size:17px;margin-bottom:12px}.authors a{text-decoration:none}.authors a:hover{text-decoration:underline}.authors sup{font-size:10px;margin-left:2px}.affiliations{font-size:13px;color:var(--muted);line-height:1.7;max-width:900px;margin:0}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.button{display:inline-flex;justify-content:center;align-items:center;gap:14px;min-height:47px;padding:9px 20px;border:1px solid var(--accent);text-decoration:none;font-size:14px;font-weight:650}.button.primary{background:var(--accent);color:white}.button:hover{background:var(--wash)}.button.primary:hover{background:#28575a}.workflow{border:1px solid var(--line);background:var(--white);padding:26px 30px 30px}.workflow-header{display:flex;gap:20px;justify-content:space-between;align-items:baseline;margin-bottom:25px}.workflow-header p{font-size:13px;color:var(--muted);margin:0}.workflow ol{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;list-style:none;padding:0;margin:0}.workflow li{position:relative;padding-right:15px}.workflow li:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:12px;color:#6b827d;font-size:22px}.step{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:9px}.workflow strong{display:block;font-size:18px;font-weight:650}.workflow li p{color:var(--muted);font-size:13px;line-height:1.6;margin:6px 0 0}.section{padding:68px 0;border-bottom:1px solid var(--line)}.section-heading{display:grid;grid-template-columns:160px 1fr;gap:35px;align-items:baseline}.section-label{margin:0}h2{font:400 34px/1.2 Georgia,serif;letter-spacing:-.02em;margin:0 0 21px}h3{font-size:18px;line-height:1.4;margin:0 0 12px}.prose{max-width:780px}.prose p{margin:0 0 17px}.prose p:last-child{margin-bottom:0}.section-body{margin:0 0 0 195px}.section-intro{color:var(--muted);margin:0 0 25px;max-width:760px}.table-wrap{overflow:auto;margin:0 0 30px;border-top:2px solid var(--accent)}table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}caption{text-align:left;font-size:17px;font-weight:650;padding:14px 0 12px}th,td{text-align:right;padding:12px 13px;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left;padding-left:0}thead th{font-size:12px;font-weight:600;color:var(--muted);vertical-align:bottom}tbody th{font-weight:500}.cleaned{background:var(--wash);font-weight:650}.table-note{font-size:13px;color:var(--muted);margin:0 0 30px}.plots{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:35px}.plots figure{margin:0;background:white;border:1px solid var(--line);padding:16px}.plots img{display:block;width:100%;height:auto}.plots figcaption{font-size:13px;line-height:1.6;color:var(--muted);margin-top:12px}.plots figcaption strong{color:var(--ink)}.setup-step{margin:30px 0}.setup-step h3{display:flex;align-items:center;gap:12px}.setup-step h3 span{font:12px var(--mono);border:1px solid var(--line);height:27px;width:27px;display:grid;place-items:center}.code-block{background:#17383b;color:#eff7f4;position:relative;border:1px solid #284e50;margin-top:14px}.code-head{display:flex;justify-content:space-between;align-items:center;padding:9px 17px;border-bottom:1px solid #3e5b5d;font:11px var(--mono);color:#c5d8d2}.copy{border:1px solid #849c97;background:transparent;color:#f7fcfa;cursor:pointer;border-radius:2px;padding:4px 10px;font:11px var(--mono)}.copy:hover{background:#315558}.code-block pre{overflow:auto;margin:0;padding:21px;font:12px/1.85 var(--mono);tab-size:2}.copy-status{height:1px;width:1px;overflow:hidden;position:absolute;clip-path:inset(50%)}p code,li code{font-family:var(--mono);font-size:.82em;background:var(--wash);padding:2px 5px;overflow-wrap:anywhere}.small{font-size:13px;color:var(--muted)}.resource-list{padding:0;list-style:none;margin:0}.resource-list li{padding:22px 0;border-top:1px solid var(--line)}.resource-list a{font-weight:600}.resource-list p{font-size:14px;color:var(--muted);margin:7px 0 0}.availability{margin-top:25px;border-left:3px solid var(--accent);padding:3px 0 3px 20px}.availability p{font-size:14px;margin:7px 0}.citation{background:white;border:1px solid var(--line)}.citation .code-head{background:var(--wash);border-bottom:1px solid var(--line);color:var(--muted)}.citation .copy{color:var(--accent);border-color:#8b9f97}.citation .copy:hover{background:#dce6da}.citation pre{font-size:12px;color:var(--ink)}footer{padding:28px 0 38px;font-size:12px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:24px}.footer-inner p{margin:0}.footer-inner a{color:inherit}
+    @media(max-width:800px){.wrap{width:calc(100% - 40px)}.hero{padding-top:45px}.section-heading{grid-template-columns:1fr;gap:12px}.section-body{margin-left:0}.section{padding:45px 0}.workflow{padding:22px}.workflow-header{display:block}.workflow-header p{margin-top:8px}.workflow ol{grid-template-columns:1fr 1fr;gap:25px}.workflow li:nth-child(2)::after{display:none}.plots{gap:15px}.nav-links{gap:15px}.nav{min-height:70px}}
+    @media(max-width:520px){.nav-links a:nth-child(2){display:none}.nav-links{font-size:12px;gap:14px}.hero{padding-bottom:35px}h1{font-size:2.45rem}.subtitle{font-size:18px}.authors{font-size:15px;gap:6px 16px}.workflow ol{grid-template-columns:1fr;gap:19px}.workflow li{padding:0 0 18px 36px;border-bottom:1px solid var(--line)}.workflow li:last-child{padding-bottom:0;border:0}.step{position:absolute;left:0;top:4px}.workflow li::after{display:none}.workflow-header{margin-bottom:20px}.workflow strong{font-size:17px}.workflow li p{margin-top:3px}.plots{grid-template-columns:1fr}h2{font-size:29px}th,td{padding:10px 8px;font-size:12px}.button{padding:9px 16px}.footer-inner{display:block}.footer-inner p+p{margin-top:10px}.code-block pre{padding:16px;font-size:11px}.section-intro{font-size:15px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><nav class="wrap nav" aria-label="Main navigation">
+    <a class="brand" href="#main" aria-label="DOD project home"><span class="brand-mark" aria-hidden="true">D</span>DOD</a>
+    <div class="nav-links"><a href="#overview">Overview</a><a href="#results">Results</a><a href="#get-started">Get started</a><a href="https://github.com/kp-labs-bme/dod">GitHub ↗</a></div>
+  </nav></header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="project-title">
+      <p class="eyebrow">Research project · Image classification</p>
+      <h1 id="project-title">Lightweight Dynamic Annotation Error Detection via Probability Discrepancy Aggregation</h1>
+      <p class="subtitle">Identify potentially faulty labels by tracking persistent disagreement between a network’s predictions and its training annotations.</p>
+      <div class="authors">
+        <a href="https://orcid.org/0009-0003-2481-8456">Csanád L. Balogh<sup>1,2</sup></a>
+        <a href="https://orcid.org/0000-0003-2178-2921">Bálint Kővári<sup>1,3</sup></a>
+        <a href="https://orcid.org/0000-0002-1487-9672">Tamás Bécsi<sup>1</sup></a>
+      </div>
+      <p class="affiliations"><sup>1</sup> Budapest University of Technology and Economics, Department of Control for Transportation and Vehicle Systems<br><sup>2</sup> Asura Technologies Ltd. &nbsp; <sup>3</sup> HUN-REN Institute for Computer Science and Control (SZTAKI), Systems and Control Laboratory</p>
+      <div class="actions"><a class="button primary" href="https://github.com/kp-labs-bme/dod">View source code <span aria-hidden="true">↗</span></a><a class="button" href="#get-started">Run an experiment <span aria-hidden="true">↓</span></a><a class="button" href="#citation">Cite this project</a></div>
+    </section>
+    <section class="workflow" aria-labelledby="workflow-title">
+      <div class="workflow-header"><h2 id="workflow-title" class="section-label">From training to inspection</h2><p>One classifier. A persistent score for each image.</p></div>
+      <ol>
+        <li><span class="step">01</span><strong>Train</strong><p>Train an image classifier using the annotated dataset.</p></li>
+        <li><span class="step">02</span><strong>Measure</strong><p>Track the discrepancy between predictions and assigned labels.</p></li>
+        <li><span class="step">03</span><strong>Aggregate</strong><p>Smooth sample scores across training epochs.</p></li>
+        <li><span class="step">04</span><strong>Inspect</strong><p>Rank samples and review potentially erroneous annotations.</p></li>
+      </ol>
+    </section>
+    <section id="overview" class="section" aria-labelledby="overview-title">
+      <div class="section-heading"><p class="section-label">01 / Overview</p><h2 id="overview-title">Data quality, observed during learning.</h2></div>
+      <div class="section-body prose">
+        <p>Classification performance depends heavily on annotation quality. Mislabeled images and ambiguous annotations can degrade model accuracy, while finding these problems manually is resource-intensive.</p>
+        <p>This work proposes a lightweight, training-time annotation error detection method inspired by information-based sample selection in reinforcement learning. It tracks persistent probability discrepancies across epochs to identify samples whose annotations remain inconsistent with the classifier’s predictions.</p>
+        <p>The study evaluates the method on CIFAR-100 and Tiny ImageNet with EfficientNet-B1, MobileNetV3-Large, and ResNet-50. The practical goal is to help experts focus their review on a smaller, ranked set of potentially problematic samples. Difficult but correctly labeled images can also receive high scores, so human review remains important.</p>
+      </div>
+    </section>
+    <section id="results" class="section" aria-labelledby="results-title">
+      <div class="section-heading"><p class="section-label">02 / Results</p><h2 id="results-title">Reported validation accuracy.</h2></div>
+      <div class="section-body">
+        <p class="section-intro">The manuscript compares training on the original dataset, training with 5% label noise, and training after removing the top-ranked samples. Values below are mean accuracy (%) ± one standard deviation across six independent runs.</p>
+        <div class="table-wrap"><table><caption>CIFAR-100</caption><thead><tr><th scope="col">Architecture</th><th scope="col">Baseline</th><th scope="col">5% noise</th><th scope="col" class="cleaned">Cleaned</th></tr></thead><tbody>
+          <tr><th scope="row">ResNet-50</th><td>76.69 ± 0.32</td><td>74.52 ± 0.23</td><td class="cleaned">75.93 ± 0.30</td></tr>
+          <tr><th scope="row">MobileNetV3-Large</th><td>68.52 ± 0.22</td><td>67.59 ± 0.24</td><td class="cleaned">68.40 ± 0.26</td></tr>
+          <tr><th scope="row">EfficientNet-B1</th><td>69.09 ± 0.36</td><td>67.49 ± 0.41</td><td class="cleaned">68.97 ± 0.26</td></tr>
+        </tbody></table></div>
+        <div class="table-wrap"><table><caption>Tiny ImageNet</caption><thead><tr><th scope="col">Architecture</th><th scope="col">Baseline</th><th scope="col">5% noise</th><th scope="col" class="cleaned">Cleaned</th></tr></thead><tbody>
+          <tr><th scope="row">ResNet-50</th><td>64.24 ± 0.27</td><td>61.96 ± 0.30</td><td class="cleaned">63.31 ± 0.24</td></tr>
+          <tr><th scope="row">MobileNetV3-Large</th><td>60.47 ± 0.27</td><td>58.98 ± 0.28</td><td class="cleaned">60.08 ± 0.38</td></tr>
+          <tr><th scope="row">EfficientNet-B1</th><td>60.44 ± 0.30</td><td>59.06 ± 0.15</td><td class="cleaned">60.20 ± 0.26</td></tr>
+        </tbody></table></div>
+        <p class="table-note">These are the manuscript’s reported values, not results generated by this website.</p>
+      </div>
+      <div class="plots">
+        <figure><a href="images/efficientnet-validation.png" aria-label="Open the original EfficientNet-B1 plot"><img src="images/efficientnet-validation.png" width="1200" height="800" loading="lazy" alt="EfficientNet-B1 validation accuracy on CIFAR-100 and Tiny ImageNet: baseline, 5% contaminated, and cleaned training; shaded bands show variation across six runs."></a><figcaption><strong>EfficientNet-B1.</strong> Original manuscript figure. Mean validation accuracy across six runs; shaded bands indicate ± one standard deviation. Click to view at full size.</figcaption></figure>
+        <figure><a href="images/mobilenet-validation.png" aria-label="Open the original MobileNetV3-Large plot"><img src="images/mobilenet-validation.png" width="1200" height="800" loading="lazy" alt="MobileNetV3-Large validation accuracy on CIFAR-100 and Tiny ImageNet: baseline, 5% contaminated, and cleaned training; shaded bands show variation across six runs."></a><figcaption><strong>MobileNetV3-Large.</strong> Original manuscript figure. Mean validation accuracy across six runs; shaded bands indicate ± one standard deviation. Click to view at full size.</figcaption></figure>
+      </div>
+    </section>
+    <section id="get-started" class="section" aria-labelledby="setup-title">
+      <div class="section-heading"><p class="section-label">03 / Get started</p><h2 id="setup-title">Explore the implementation.</h2></div>
+      <div class="section-body">
+        <p class="section-intro">The repository contains a PyTorch training pipeline, dataset loaders, per-sample scoring, and ranking export. Run these commands from the project directory using a compatible PyTorch and torchvision installation.</p>
+        <div class="setup-step"><h3><span aria-hidden="true">1</span>Clone and install</h3>
+          <div class="code-block"><div class="code-head"><span>BASH</span><button type="button" class="copy" data-copy="install-code" hidden>Copy</button></div><pre><code id="install-code">git clone https://github.com/kp-labs-bme/dod.git
+cd dod
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pip install requests psutil</code></pre></div>
+          <p class="small">The last command installs two packages used by the current implementation but not listed in its requirements file.</p>
+        </div>
+        <div class="setup-step"><h3><span aria-hidden="true">2</span>Start a new scoring run</h3>
+          <div class="code-block"><div class="code-head"><span>BASH</span><button type="button" class="copy" data-copy="train-code" hidden>Copy</button></div><pre><code id="train-code">python train.py \
+  --data_loader_use_selection False \
+  --callbacks_neptune_logger_callback False \
+  --optim_lr_decay False</code></pre></div>
+          <p class="small">This uses the current CIFAR-100 defaults, including 1,000 incorrectly labeled duplicates and 1,000 heavily augmented samples. Selection is disabled because the first run has no ranking file. Learning-rate decay is disabled because the current trainer advances its scheduler only with Neptune logging enabled.</p>
+          <p class="small">For an initial two-epoch trial, append <code>--trainer_n_epochs 2</code>. To omit the added samples, append <code>--data_loader_n_duplicate 0 --data_loader_n_undoable 0</code>. These examples start new experiments; they do not reconstruct the original manuscript runs.</p>
+        </div>
+        <div class="setup-step"><h3><span aria-hidden="true">3</span>Inspect the ranking</h3>
+          <p>The default scoring run exports <code>base_exploit_indexes.txt</code>, ordered from the highest score to the lowest. Each line contains <code>sample_index,score,image_path</code>. Review the images before deciding which annotations to correct or remove.</p>
+          <p>Change the dataset, architecture, scoring method, and experiment settings in <a href="https://github.com/kp-labs-bme/dod/blob/main/configuration.ini">configuration.ini</a>. See the <a href="https://github.com/kp-labs-bme/dod#running-the-code">README</a> for the available options and implementation notes.</p>
+        </div>
+      </div>
+    </section>
+    <section id="resources" class="section" aria-labelledby="resources-title">
+      <div class="section-heading"><p class="section-label">04 / Resources</p><h2 id="resources-title">Code and benchmark datasets.</h2></div>
+      <div class="section-body">
+        <ul class="resource-list">
+          <li><a href="https://github.com/kp-labs-bme/dod">DOD source repository ↗</a><p>Training and data-generation code, scoring methods, configuration, and setup instructions. Source code is released under the <a href="https://github.com/kp-labs-bme/dod/blob/main/LICENSE">MIT License</a>.</p></li>
+          <li><a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-100 ↗</a><p>Alex Krizhevsky. <a href="https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf"><cite>Learning Multiple Layers of Features from Tiny Images</cite></a>. University of Toronto, 2009.</p></li>
+          <li><a href="http://cs231n.stanford.edu/tiny-imagenet-200.zip">Tiny ImageNet ↗</a><p>Ya Le and Xuan Yang. <a href="https://vision.stanford.edu/teaching/cs231n/reports/2015/pdfs/yle_project.pdf"><cite>Tiny ImageNet Visual Recognition Challenge</cite></a>. Stanford University, 2015.</p></li>
+        </ul>
+        <div class="availability"><h3>Data availability</h3><p>The original generated experimental result files and noise-selection files were not retained and are unavailable. The tables and plots above preserve the aggregate results reported in the manuscript. The repository provides code for running new experiments.</p></div>
+      </div>
+    </section>
+    <section id="citation" class="section" aria-labelledby="citation-title">
+      <div class="section-heading"><p class="section-label">05 / Reference</p><h2 id="citation-title">Cite this project.</h2></div>
+      <div class="section-body">
+        <p class="section-intro">This project accompanies the manuscript named above. The entry below identifies the project page and research code; journal publication details will be added when available.</p>
+        <div class="code-block citation"><div class="code-head"><span>BIBTEX · PROJECT PAGE</span><button type="button" class="copy" data-copy="citation-code" hidden>Copy</button></div><pre><code id="citation-code">@misc{balogh_dod_2026,
+  author = {Balogh, Csan{\'a}d L. and K{\H{o}}v{\'a}ri, B{\'a}lint
+            and B{\'e}csi, Tam{\'a}s},
+  title = {Lightweight Dynamic Annotation Error Detection
+           via Probability Discrepancy Aggregation},
+  year = {2026},
+  url = {https://kp-labs-bme.github.io/dod/},
+  note = {Research code and project page}
+}</code></pre></div>
+      </div>
+    </section>
+    <p class="copy-status" role="status" aria-live="polite" id="copy-status"></p>
+  </main>
+  <footer><div class="wrap footer-inner"><p>DOD · Budapest University of Technology and Economics</p><p><a href="https://github.com/kp-labs-bme/dod">Source code</a> &nbsp; / &nbsp; <a href="mailto:becsi.tamas@kjk.bme.hu">Corresponding author</a></p></div></footer>
+  <script>
+    if (navigator.clipboard && window.isSecureContext) {
+      document.querySelectorAll('[data-copy]').forEach(function (button) {
+        button.hidden = false;
+        button.addEventListener('click', async function () {
+          try {
+            await navigator.clipboard.writeText(document.getElementById(button.dataset.copy).textContent);
+            button.textContent = 'Copied';
+            document.getElementById('copy-status').textContent = 'Copied to clipboard.';
+            window.setTimeout(function () { button.textContent = 'Copy'; }, 1800);
+          } catch (error) {
+            document.getElementById('copy-status').textContent = 'Copy unavailable. Select and copy the text directly.';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
